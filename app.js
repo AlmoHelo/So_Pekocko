@@ -5,6 +5,7 @@ const path = require('path');
 const helmet = require('helmet');
 const cors = require('cors');
 const rateLimit = require('express-rate-limit');
+const mongoSanitize = require('express-mongo-sanitize');
 
 //constante à utiliser avec le package rateLimit
 const limiter = rateLimit({         
@@ -42,5 +43,6 @@ app.use('/api/auth', userRoutes);
 app.use(helmet());
 app.use(cors({origin: 'http://localhost:4200'}));
 app.use(limiter);
+app.use(mongoSanitize());
 
 module.exports = app;
