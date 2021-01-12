@@ -3,6 +3,15 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const path = require('path');
 const helmet = require('helmet');
+const cors = require('cors');
+const rateLimit = require('express-rate-limit');
+
+//constante à utiliser avec le package rateLimit
+const limiter = rateLimit({         
+  windowMs: 15 * 60 * 1000,       // = 15 minutes
+  max: 5                          // 5 tentatives
+});
+
 
 const sauceRoutes = require('./routes/sauce');
 const userRoutes = require('./routes/user');
@@ -31,5 +40,7 @@ app.use('/images', express.static(path.join(__dirname, 'images')));
 app.use('/api/sauces', sauceRoutes);
 app.use('/api/auth', userRoutes);
 app.use(helmet());
+app.use(cors({origin: 'http://localhost:4200'}));
+app.use(limiter);
 
 module.exports = app;
