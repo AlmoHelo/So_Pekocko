@@ -1,6 +1,6 @@
-require('./db/db');
 const express = require('express');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 const path = require('path');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
@@ -18,7 +18,6 @@ const userRoutes = require('./routes/user');
 
 const app = express();
 
-
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
@@ -27,6 +26,14 @@ app.use((req, res, next) => {
 });
 
 app.use(bodyParser.json());
+
+mongoose.connect("mongodb+srv://almohelo:e7n11m8h4@cluster0.wfjmt.mongodb.net/So_Pekocko?retryWrites=true&w=majority",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
+  .then(() => console.log('Connexion à MongoDB réussie !'))
+  .catch(() => console.log('Connexion à MongoDB échouée !'));
 
 app.use('/images', express.static(path.join(__dirname, 'images')));
 

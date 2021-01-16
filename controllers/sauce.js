@@ -59,7 +59,10 @@ exports.likeOneSauce = (req, res, next) => {
             switch (req.body.like) {
                 case 1: // if user like the sauce  
                     if (!sauce.usersLiked.includes(req.body.userId)) {  //on vérife si le user n'a pas like déja cet sauce
-                        Sauce.updateOne({ _id: req.params.id }, { $inc: { likes: 1 }, $push: { usersLiked: req.body.userId }, _id: req.params.id })
+                        Sauce.updateOne({ _id: req.params.id }, 
+                            { $inc: { likes: 1 }, 
+                            $push: { usersLiked: req.body.userId }, 
+                            _id: req.params.id })
                             // on Incremente like et en push the userId dans le tableau usersLiked
                             .then(() => res.status(201).json({ message: 'Like ajouté avec succès !' }))
                             .catch(error => res.status(400).json({ error }));
@@ -68,7 +71,10 @@ exports.likeOneSauce = (req, res, next) => {
 
                 case -1: // if user Dislike the sauce 
                     if (!sauce.usersDisliked.includes(req.body.userId)) {  //on vérife si le user n'a pas Dislike déja cet sauce
-                        Sauce.updateOne({ _id: req.params.id }, { $inc: { dislikes: 1 }, $push: { usersDisliked: req.body.userId }, _id: req.params.id })
+                        Sauce.updateOne({ _id: req.params.id }, 
+                            { $inc: { dislikes: 1 }, 
+                            $push: { usersDisliked: req.body.userId }, 
+                            _id: req.params.id })
                             // on Incremente Dislike et en push the userId dans le tableau usersDisLiked
                             .then(() => res.status(201).json({ message: 'DisLike ajouté avec suucès !' }))
                             .catch(error => res.status(400).json({ error }));
