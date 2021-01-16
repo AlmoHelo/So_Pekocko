@@ -1,10 +1,10 @@
+require('./db/db');
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const mongoSanitize = require('express-mongo-sanitize');
-require('./db/db');
 
 //constante à utiliser avec le package rateLimit
 const limiter = rateLimit({         

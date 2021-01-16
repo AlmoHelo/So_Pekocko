@@ -68,7 +68,7 @@ exports.likeOneSauce = (req, res, next) => {
 
                 case -1: // if user Dislike the sauce 
                     if (!sauce.usersDisliked.includes(req.body.userId)) {  //on vérife si le user n'a pas Dislike déja cet sauce
-                        Sauce.updateOne({ _id: req.params.id }, { $inc: { Dislikes: 1 }, $push: { usersDisliked: req.body.userId }, _id: req.params.id })
+                        Sauce.updateOne({ _id: req.params.id }, { $inc: { dislikes: 1 }, $push: { usersDisliked: req.body.userId }, _id: req.params.id })
                             // on Incremente Dislike et en push the userId dans le tableau usersDisLiked
                             .then(() => res.status(201).json({ message: 'DisLike ajouté avec suucès !' }))
                             .catch(error => res.status(400).json({ error }));
