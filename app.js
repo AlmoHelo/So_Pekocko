@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const path = require('path');
 const helmet = require('helmet');
+
 const rateLimit = require('express-rate-limit');
 const mongoSanitize = require('express-mongo-sanitize');
 
@@ -17,6 +18,8 @@ const userRoutes = require('./routes/user');
 
 const app = express();
 
+
+//configuration CORS
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
@@ -26,6 +29,7 @@ app.use((req, res, next) => {
 
 app.use(bodyParser.json());
 
+//connection à Mongoose avec mongoDB
 mongoose.connect("mongodb+srv://almohelo:e7n11m8h4@cluster0.wfjmt.mongodb.net/So_Pekocko?retryWrites=true&w=majority",
   {
     useNewUrlParser: true,
@@ -36,10 +40,12 @@ mongoose.connect("mongodb+srv://almohelo:e7n11m8h4@cluster0.wfjmt.mongodb.net/So
 
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
-app.use('/api/sauces', sauceRoutes);
-app.use('/api/auth', userRoutes);
-app.use(helmet());
+app.use(helmet());    //sécurise HTTP headers
 app.use(limiter);
 app.use(mongoSanitize());
+
+// Routes
+app.use('/api/sauces', sauceRoutes);
+app.use('/api/auth', userRoutes);
 
 module.exports = app;
