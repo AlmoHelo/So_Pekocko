@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const mongooseUniqueValidator = require('mongoose-unique-validator');
+const mongooseUniqueValidator = require('mongoose-unique-validator');  //validation de pré-sauvegarde
 
 const sauceSchema = mongoose.Schema({
     userId : { type: String, required: true},
