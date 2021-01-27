@@ -12,7 +12,6 @@ const limiter = rateLimit({
   max: 5                          // 5 tentatives
 });
 
-
 const sauceRoutes = require('./routes/sauce');
 const userRoutes = require('./routes/user');
 
