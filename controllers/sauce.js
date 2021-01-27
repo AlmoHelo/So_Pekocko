@@ -68,28 +68,28 @@ exports.likeOneSauce = (req, res, next) => {
         .then(sauce => {
             switch (likeSauce) {
                 case 1: // if user like the sauce  
-                    if (sauce.usersLiked.includes(userId) !== 'undefined') {  //on vérife si le user n'a pas like déja cet sauce
+                    if (sauce.usersLiked.includes(userId) !== 'undefined') {  //on vérifie si le user n'a pas like déja cet sauce
                         Sauce.updateOne({ _id: id },
                             {
                                 $inc: { likes: 1 },
                                 $push: { usersLiked: userId },
                                 _id: id
                             })
-                            // on Incremente like et en push the userId dans le tableau usersLiked
+                            // on incremente like et en push the userId dans le tableau usersLiked
                             .then(() => res.status(201).json({ message: 'Like ajouté avec succès !' }))
                             .catch(error => res.status(410).json({ error }));
                     }
                     break;
 
                 case -1: // if user Dislike the sauce 
-                    if (sauce.usersDisliked.includes(userId) !== 'undefined') {  //on vérife si le user n'a pas Dislike déja cet sauce
+                    if (sauce.usersDisliked.includes(userId) !== 'undefined') {  //on vérifie si le user n'a pas Dislike déja cet sauce
                         Sauce.updateOne({ _id: id },
                             {
                                 $inc: { dislikes: 1 },
                                 $push: { usersDisliked: userId },
                                 _id: id
                             })
-                            // on Incremente Dislike et en push the userId dans le tableau usersDisLiked
+                            // on incremente dislike et en push the userId dans le tableau usersDisLiked
                             .then(() => res.status(201).json({ message: 'DisLike ajouté avec suucès !' }))
                             .catch(error => res.status(400).json({ error }));
                     }
