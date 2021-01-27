@@ -8,9 +8,9 @@ const rateLimit = require('express-rate-limit');
 const mongoSanitize = require('express-mongo-sanitize');
 
 //constante à utiliser avec le package rateLimit
-const limiter = rateLimit({         
+const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,       // = 15 minutes
-  max: 5                          // 5 tentatives
+  max: 100                          // 5 tentatives
 });
 
 const sauceRoutes = require('./routes/sauce');

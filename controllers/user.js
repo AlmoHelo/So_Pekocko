@@ -1,6 +1,6 @@
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');            
+const jwt = require('jsonwebtoken');
 const sanitize = require('mongo-sanitize');
 
 //requête inscription

@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const mongooseUniqueValidator = require('mongoose-unique-validator');  //validation de pré-sauvegarde
 
 const sauceSchema = mongoose.Schema({
-    userId : { type: String, required: true},
+    userId: { type: String, required: true },
     name: { type: String, required: true },
     manufacturer: { type: String, required: true },
     description: { type: String, required: true },

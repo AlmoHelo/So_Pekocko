@@ -63,7 +63,7 @@ exports.likeOneSauce = (req, res, next) => {
     const likeSauce = req.body.like;
     const userId = req.body.userId;
     const id = req.params.id;
-    
+
     Sauce.findOne({ _id: id })
         .then(sauce => {
             switch (likeSauce) {
