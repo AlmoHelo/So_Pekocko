@@ -1,5 +1,6 @@
 const multer = require('multer');
 
+//nous permet de gérer les fichiers entrants
 const MIME_TYPES = {
     'image/jpg': 'jpg',
     'image/jpeg': 'jpg',
@@ -7,10 +8,10 @@ const MIME_TYPES = {
 };
 
 const storage = multer.diskStorage({
-    destination: (req, file, callback) => {
+    destination: (req, file, callback) => {     //indique la destination des fichiers
         callback(null, 'images');
     },
-    filename: (req, file, callback) => {
+    filename: (req, file, callback) => {                        //utilise le nom d'origine et remplace les espaces par des underscores et ajouter un timestamp
         const name = file.originalname.split(' ').join('_');
         const extension = MIME_TYPES[file.mimetype];
         callback(null, name + Date.now() + '.' + extension);
