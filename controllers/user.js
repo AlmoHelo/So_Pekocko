@@ -40,7 +40,7 @@ exports.login = (req, res, next) => {
                         userId: user._id,
                         token: jwt.sign(
                             { userId: user._id },
-                            'RANDOM_TOKEN_SECRET',      //chaîne de developpement temporaire pour encoder token
+                            'hoiBBF565dsBJk56ampMbjfe5263MKB523fezbkknkPAfbkND6326HKZBJlldsnkclfezigb5526s64gzsjojDZ65dsDZc',      //chaîne aléatoire pour encoder token
                             { expiresIn: '2h' }         //durée de validité du token
                         )
                     });
