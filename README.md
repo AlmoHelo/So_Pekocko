@@ -23,11 +23,41 @@ L'objectif est de créer un MVP permettant aux utilisateurs d'ajouter leurs sauc
 </ul>
 
 <h3>API REST</h3>
--Sécurité OWASP et RGPD
+<ul>
+<li>Sécurité OWASP et RGPD</li>
+</ul>
 </section>
 <section>
-<h3>Contenus de ce repository </h3>
+<h2>Contenus de ce repository </h2>
 Ce repo contient les deux dossiers Frontend et Backend. Vous pouvez cloner ce repository pour récupérer en local les deux parties Front et Back de l'application.
 
 Si besoin, vous pouvez trouver le Frontend séparément sur <a href="https://github.com/OpenClassrooms-Student-Center/dwj-projet6">github</a>.
 </section>
+
+<section>
+<h2>🔨   Installation </h2>
+<ul><li>
+Cloner ce projet depuis GitHub. (https://github.com/AlmoHelo/So_Pekocko.git)</li>
+</ul>
+<h2>Pour le Frontend</h2>
+<ul>
+<li>Ouvrir le terminal et exécuter npm install pour installer les dépendances.</li>
+<li>Le projet a été généré avec Angular CLI : exécuter npm run start ou ng serve pour avoir accès au serveur de développement.</li>
+<li>Ouvrez une page internet et rendez vous sur http://localhost:4200.</li>
+<li>L'application va se recharger automatiquement si vous modifiez un fichier source.</li>
+</ul>
+
+
+💡   Faire tourner le Backend
+Ouvrir le terminal sur ce dossier.
+Pour utiliser le serveur, chargez le package nodemon : npm install -g nodemon.
+Puis lancez le serveur: nodemon server.
+Pour faire court
+Si les packages sont déja installés, ces commandes suffisent à démarrer les serveurs.
+
+npm start via le terminal sur le frontend
+nodemon server via le terminal sur le backend
+Se connecter à l'url : http://localhost:4200
+🖥   Connexion
+Ouvrir localhost:4200 dans votre navigateur.
+Pour s'inscrire sur l'application, l'utilisateur doit fournir un email et un mot de passe contenant 08 caractères minimum (dont 1 majuscule, 1 minuscule, 1 chiffre, pas de symbole, espaces autorisés).
