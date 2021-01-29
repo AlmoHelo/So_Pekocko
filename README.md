@@ -1,4 +1,4 @@
-Projet 6 - Construire une API sécurisée pour l'application d'avis gastronomique 
+<h1>Projet 6 - Construire une API sécurisée pour l'application d'avis gastronomique</h1>
 
 ![alt text](http://url/to/logo.jpg);
 
