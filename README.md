@@ -54,9 +54,12 @@ Cloner ce projet depuis GitHub. (https://github.com/AlmoHelo/So_Pekocko.git)</li
 <li>Exécuter nodemon serve pour lancer le serveur</li>
 </ul>
 
-<h3>Connexion</h3>
+<h3>🖥 Connexion</h3>
 <ul>
 <li>Ouvrir localhost:4200 dans votre navigateur.</li>
 <li>Pour s'inscrire sur l'application, l'utilisateur doit fournir un email et un mot de passe valides.</li>
 <li>Ensuite, vous pouvez vous connecter ! :)</li>
 </ul>
+
+
+Copyright©2021 <a href="https://github.com/AlmoHelo">Almoyner Héloïse</a>
