@@ -25,3 +25,9 @@ L'objectif est de créer un MVP permettant aux utilisateurs d'ajouter leurs sauc
 <h3>API REST</h3>
 -Sécurité OWASP et RGPD
 </section>
+<section>
+<h3>Contenus de ce repository </h3>
+Ce repo contient les deux dossiers Frontend et Backend. Vous pouvez cloner ce repository pour récupérer en local les deux parties Front et Back de l'application.
+
+Si besoin, vous pouvez trouver le Frontend séparément sur <a href="https://github.com/OpenClassrooms-Student-Center/dwj-projet6">github</a>.
+</section>
