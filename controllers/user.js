@@ -2,17 +2,19 @@ const User = require('../models/User');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const sanitize = require('mongo-sanitize');
+const crypt = require('crypto-js');
 require('dotenv').config()
 
 //requête inscription
 exports.signup = (req, res, next) => {
     const email = sanitize(req.body.email);         //nettoie les entrées 
     const password = sanitize(req.body.password);
+    const cryptoEmail = crypt.MD5(email).toString();
 
     bcrypt.hash(password, 10)
         .then(hash => {
             const user = new User({
-                email: email,
+                email: cryptoEmail,
                 password: hash                      //hashage du mot de passe   
             });
             user.save()
@@ -26,8 +28,9 @@ exports.signup = (req, res, next) => {
 exports.login = (req, res, next) => {
     const email = sanitize(req.body.email);
     const password = sanitize(req.body.password);
+    const cryptoEmail = crypt.MD5(email).toString();
 
-    User.findOne({ email: email })
+    User.findOne({ email: cryptoEmail })
         .then(user => {
             if (!user) {
                 return res.status(401).json({ error: 'Utilisateur non trouvé !' });
