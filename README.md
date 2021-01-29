@@ -39,7 +39,7 @@ Si besoin, vous pouvez trouver le Frontend séparément sur <a href="https://git
 <ul><li>
 Cloner ce projet depuis GitHub. (https://github.com/AlmoHelo/So_Pekocko.git)</li>
 </ul>
-<h2>Pour le Frontend</h2>
+<h3>Pour le Frontend</h3>
 <ul>
 <li>Ouvrir le terminal et exécuter npm install pour installer les dépendances.</li>
 <li>Le projet a été généré avec Angular CLI : exécuter npm run start ou ng serve pour avoir accès au serveur de développement.</li>
@@ -48,16 +48,15 @@ Cloner ce projet depuis GitHub. (https://github.com/AlmoHelo/So_Pekocko.git)</li
 </ul>
 
 
-💡   Faire tourner le Backend
-Ouvrir le terminal sur ce dossier.
-Pour utiliser le serveur, chargez le package nodemon : npm install -g nodemon.
-Puis lancez le serveur: nodemon server.
-Pour faire court
-Si les packages sont déja installés, ces commandes suffisent à démarrer les serveurs.
+<h3>Pour le Backend</h3>
+<ul>
+<li>Ouvrir le terminal et exécuter npm install pour installer les dépendances.</li>
+<li>Exécuter nodemon serve pour lancer le serveur</li>
+</ul>
 
-npm start via le terminal sur le frontend
-nodemon server via le terminal sur le backend
-Se connecter à l'url : http://localhost:4200
-🖥   Connexion
-Ouvrir localhost:4200 dans votre navigateur.
-Pour s'inscrire sur l'application, l'utilisateur doit fournir un email et un mot de passe contenant 08 caractères minimum (dont 1 majuscule, 1 minuscule, 1 chiffre, pas de symbole, espaces autorisés).
+<h3>Connexion</h3>
+<ul>
+<li>Ouvrir localhost:4200 dans votre navigateur.</li>
+<li>Pour s'inscrire sur l'application, l'utilisateur doit fournir un email et un mot de passe valides.</li>
+<li>Ensuite, vous pouvez vous connecter ! :)</li>
+</ul>
