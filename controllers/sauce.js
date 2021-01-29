@@ -1,23 +1,25 @@
 const Sauce = require('../models/Sauce');
 const fs = require('fs');
+const sanitize = require('mongo-sanitize');
 
 //récupération d'une sauce
-exports.getOneSauce = (req, res, next) => {
+exports.getOne = (req, res, next) => {
     Sauce.findOne({ _id: req.params.id })
         .then(sauce => res.status(200).json(sauce))
         .catch(error => res.status(404).json({ error }));
 };
 
 //récupération de toutes les sauces
-exports.getAllSauces = (req, res, next) => {
+exports.getAll = (req, res, next) => {
     Sauce.find()
         .then(sauces => res.status(200).json(sauces))
         .catch(error => res.status(400).json({ error }));
 };
 
 //création d'une sauce
-exports.createSauce = (req, res, next) => {
-    const sauceObject = JSON.parse(req.body.sauce);
+exports.create = (req, res, next) => {
+    const sauceNettoyée = sanitize(req.body.sauce); 
+    const sauceObject = JSON.parse(sauceNettoyée);
     const sauce = new Sauce({
         ...sauceObject,
         imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`,
@@ -32,10 +34,11 @@ exports.createSauce = (req, res, next) => {
 };
 
 //modification d'une sauce
-exports.modifySauce = (req, res, next) => {
+exports.modify = (req, res, next) => {
+    const sauceNettoyée = sanitize(req.body.sauce); 
     const sauceObject = req.file ?
         {
-            ...JSON.parse(req.body.sauce),
+            ...JSON.parse(sauceNettoyée),
             imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
         } : { ...req.body };
     Sauce.updateOne({ _id: req.params.id }, { ...sauceObject, _id: req.params.id })
@@ -44,7 +47,7 @@ exports.modifySauce = (req, res, next) => {
 };
 
 //suppression d'une sauce
-exports.deleteSauce = (req, res, next) => {
+exports.delete = (req, res, next) => {
     Sauce.findOne({ _id: req.params.id })
         .then(sauce => {
             const filename = sauce.imageUrl.split('/images/')[1];
@@ -59,9 +62,9 @@ exports.deleteSauce = (req, res, next) => {
 
 
 
-exports.likeOneSauce = (req, res, next) => {
+exports.like = (req, res, next) => {
     const likeSauce = req.body.like;
-    const userId = req.body.userId;
+    const userId = sanitize(req.body.userId); 
     const id = req.params.id;
 
     Sauce.findOne({ _id: id })

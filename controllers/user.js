@@ -2,6 +2,7 @@ const User = require('../models/User');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const sanitize = require('mongo-sanitize');
+require('dotenv').config()
 
 //requête inscription
 exports.signup = (req, res, next) => {
@@ -40,7 +41,7 @@ exports.login = (req, res, next) => {
                         userId: user._id,
                         token: jwt.sign(
                             { userId: user._id },
-                            'hoiBBF565dsBJk56ampMbjfe5263MKB523fezbkknkPAfbkND6326HKZBJlldsnkclfezigb5526s64gzsjojDZ65dsDZc',      //chaîne aléatoire pour encoder token
+                            process.env.DB_TOKEN,      //chaîne aléatoire pour encoder token
                             { expiresIn: '2h' }         //durée de validité du token
                         )
                     });

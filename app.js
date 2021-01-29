@@ -30,7 +30,7 @@ app.use((req, res, next) => {
 app.use(bodyParser.json());
 
 //connection à Mongoose avec mongoDB
-mongoose.connect("mongodb+srv://almohelo:e7n11m8h4@cluster0.wfjmt.mongodb.net/So_Pekocko?retryWrites=true&w=majority",
+mongoose.connect("mongodb+srv://" + process.env.DB_NAME + ":" + process.env.DB_MDP +"@cluster0.wfjmt.mongodb.net/"+ process.env.DB_SERVE +"?retryWrites=true&w=majority",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true
