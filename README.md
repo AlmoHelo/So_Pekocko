@@ -1,8 +1,8 @@
 <h1>Projet 6 - Construire une API sécurisée pour l'application d'avis gastronomique</h1>
 
-![alt text](http://url/to/logo.jpg);
+<img src="logo.jpg"/>
 
-Le sujet de ce projet porte sur le développement d'une application d'évaluation des sauces piquantes pour la marque "So Pekocko".
+Le sujet de ce projet porte sur le développement d'une application d'évaluation des sauces piquantes pour la marque <strong>"So Pekocko"</strong>.
 L'objectif est de créer un MVP permettant aux utilisateurs d'ajouter leurs sauces préférées et d'aimer ou non celles ajoutées par les autres utilisateurs.
 
 Contexte :
